@@ -124,7 +124,8 @@ The deployment surfaced four distinct issues requiring diagnosis and resolution 
 
 | Artifact | Location | Description |
 |----------|----------|-------------|
-| Custom Rule Alert (JSON) | [`evidence/T1053.005-detection-evidence-pretty.json`](evidence/T1053.005-detection-evidence-pretty.json) | Pretty-printed Wazuh alert showing Rule 100002 firing at level 12 with full event context |
+| Baseline Alert (JSON) | [`evidence/T1053.005-baseline-alert.json`](evidence/T1053.005-baseline-alert.json) | Wazuh alert from built-in Rule 60228 (level 4) — generic scheduled task creation detection |
+| Custom Rule Alert (JSON) | [`evidence/T1053.005-custom-rule-alert.json`](evidence/T1053.005-custom-rule-alert.json) | Wazuh alert from custom Rule 100002 (level 12) — targeted cmd.exe persistence detection |
 | Custom Rule Definition | [`rules/local_rules.xml`](rules/local_rules.xml) | The custom detection rule as deployed on the Wazuh manager |
 | Screenshots | [`evidence/screenshots/`](evidence/screenshots/) | Visual documentation of each project phase |
 
