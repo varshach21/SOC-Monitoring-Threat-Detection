@@ -1,0 +1,77 @@
+ cat ~/T1053.005-detection-evidence-pretty.json
+{
+  "timestamp": "2026-08-24T00:11:49.114+0000",
+  "rule": {
+    "level": 4,
+    "description": "A scheduled task was created",
+    "id": "60228",
+    "mitre": {
+      "id": [
+        "T1053"
+      ],
+      "tactic": [
+        "Execution",
+        "Persistence",
+        "Privilege Escalation"
+      ],
+      "technique": [
+        "Scheduled Task/Job"
+      ]
+    },
+    "firedtimes": 1,
+    "mail": false,
+    "groups": [
+      "windows",
+      "windows_security",
+      "ipsec"
+    ]
+  },
+  "agent": {
+    "id": "001",
+    "name": "win11-client",
+    "ip": "10.0.0.223"
+  },
+  "manager": {
+    "name": "server-wazuh"
+  },
+  "id": "1787530309.26862",
+  "decoder": {
+    "name": "windows_eventchannel"
+  },
+  "data": {
+    "win": {
+      "system": {
+        "providerName": "Microsoft-Windows-Security-Auditing",
+        "providerGuid": "{54849625-5478-4994-a5ba-3e3b0328c30d}",
+        "eventID": "4698",
+        "version": "1",
+        "level": "0",
+        "task": "12804",
+        "opcode": "0",
+        "keywords": "0x8020000000000000",
+        "systemTime": "2026-08-23T23:34:18.1366809Z",
+        "eventRecordID": "14317",
+        "processID": "852",
+        "threadID": "5316",
+        "channel": "Security",
+        "computer": "win11-client",
+        "severityValue": "AUDIT_SUCCESS",
+        "message": "\"A scheduled task was created.\r\n\r\nSubject:\r\n\tSecurity ID:\t\tS-1-5-21-2703413342-1796051491-1375052998-1000\r\n\tAccount Name:\t\tvboxuser\r\n\tAccount Domain:\t\tWIN11-CLIENT\r\n\tLogon ID:\t\t0x3904E\r\n\r\nTask Information:\r\n\tTask Name: \t\t\\spawn\r\n\tTask Content: \t\t<?xml version=\"1.0\" encoding=\"UTF-16\"?>\r\n<Task version=\"1.2\" xmlns=\"http://schemas.microsoft.com/windows/2004/02/mit/task\">\r\n  <RegistrationInfo>\r\n    <Date>2026-08-23T19:34:18</Date>\r\n    <Author>WIN11-CLIENT\\vboxuser</Author>\r\n    <URI>\\spawn</URI>\r\n  </RegistrationInfo>\r\n  <Triggers>\r\n    <TimeTrigger>\r\n      <StartBoundary>2026-08-23T20:10:00</StartBoundary>\r\n      <Enabled>true</Enabled>\r\n    </TimeTrigger>\r\n  </Triggers>\r\n  <Settings>\r\n    <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>\r\n    <DisallowStartIfOnBatteries>true</DisallowStartIfOnBatteries>\r\n    <StopIfGoingOnBatteries>true</StopIfGoingOnBatteries>\r\n    <AllowHardTerminate>true</AllowHardTerminate>\r\n    <StartWhenAvailable>false</StartWhenAvailable>\r\n    <RunOnlyIfNetworkAvailable>false</RunOnlyIfNetworkAvailable>\r\n    <IdleSettings>\r\n      <Duration>PT10M</Duration>\r\n      <WaitTimeout>PT1H</WaitTimeout>\r\n      <StopOnIdleEnd>true</StopOnIdleEnd>\r\n      <RestartOnIdle>false</RestartOnIdle>\r\n    </IdleSettings>\r\n    <AllowStartOnDemand>true</AllowStartOnDemand>\r\n    <Enabled>true</Enabled>\r\n    <Hidden>false</Hidden>\r\n    <RunOnlyIfIdle>false</RunOnlyIfIdle>\r\n    <WakeToRun>false</WakeToRun>\r\n    <ExecutionTimeLimit>PT72H</ExecutionTimeLimit>\r\n    <Priority>7</Priority>\r\n  </Settings>\r\n  <Actions Context=\"Author\">\r\n    <Exec>\r\n      <Command>C:\\windows\\system32\\cmd.exe</Command>\r\n    </Exec>\r\n  </Actions>\r\n  <Principals>\r\n    <Principal id=\"Author\">\r\n      <UserId>WIN11-CLIENT\\vboxuser</UserId>\r\n      <LogonType>InteractiveToken</LogonType>\r\n      <RunLevel>LeastPrivilege</RunLevel>\r\n    </Principal>\r\n  </Principals>\r\n</Task>\r\n\r\nOther Information:\r\n\tProcessCreationTime: \t\t844424930133263\r\n\tClientProcessId: \t\t\t12188\r\n\tParentProcessId: \t\t\t2732\r\n\tFQDN: \t\t0\r\n\t\""
+      },
+      "eventdata": {
+        "subjectUserSid": "S-1-5-21-2703413342-1796051491-1375052998-1000",
+        "subjectUserName": "vboxuser",
+        "subjectDomainName": "WIN11-CLIENT",
+        "subjectLogonId": "0x3904e",
+        "taskName": "\\\\spawn",
+        "taskContent": "&lt;?xml version=\\\"1.0\\\" encoding=\\\"UTF-16\\\"?&gt;  &lt;Task version=\\\"1.2\\\" xmlns=\\\"http://schemas.microsoft.com/windows/2004/02/mit/task\\\"&gt;    &lt;RegistrationInfo&gt;      &lt;Date&gt;2026-08-23T19:34:18&lt;/Date&gt;      &lt;Author&gt;WIN11-CLIENT\\\\vboxuser&lt;/Author&gt;      &lt;URI&gt;\\\\spawn&lt;/URI&gt;    &lt;/RegistrationInfo&gt;    &lt;Triggers&gt;      &lt;TimeTrigger&gt;        &lt;StartBoundary&gt;2026-08-23T20:10:00&lt;/StartBoundary&gt;        &lt;Enabled&gt;true&lt;/Enabled&gt;      &lt;/TimeTrigger&gt;    &lt;/Triggers&gt;    &lt;Settings&gt;      &lt;MultipleInstancesPolicy&gt;IgnoreNew&lt;/MultipleInstancesPolicy&gt;      &lt;DisallowStartIfOnBatteries&gt;true&lt;/DisallowStartIfOnBatteries&gt;      &lt;StopIfGoingOnBatteries&gt;true&lt;/StopIfGoingOnBatteries&gt;      &lt;AllowHardTerminate&gt;true&lt;/AllowHardTerminate&gt;      &lt;StartWhenAvailable&gt;false&lt;/StartWhenAvailable&gt;      &lt;RunOnlyIfNetworkAvailable&gt;false&lt;/RunOnlyIfNetworkAvailable&gt;      &lt;IdleSettings&gt;        &lt;Duration&gt;PT10M&lt;/Duration&gt;        &lt;WaitTimeout&gt;PT1H&lt;/WaitTimeout&gt;        &lt;StopOnIdleEnd&gt;true&lt;/StopOnIdleEnd&gt;        &lt;RestartOnIdle&gt;false&lt;/RestartOnIdle&gt;      &lt;/IdleSettings&gt;      &lt;AllowStartOnDemand&gt;true&lt;/AllowStartOnDemand&gt;      &lt;Enabled&gt;true&lt;/Enabled&gt;      &lt;Hidden&gt;false&lt;/Hidden&gt;      &lt;RunOnlyIfIdle&gt;false&lt;/RunOnlyIfIdle&gt;      &lt;WakeToRun&gt;false&lt;/WakeToRun&gt;      &lt;ExecutionTimeLimit&gt;PT72H&lt;/ExecutionTimeLimit&gt;      &lt;Priority&gt;7&lt;/Priority&gt;    &lt;/Settings&gt;    &lt;Actions Context=\\\"Author\\\"&gt;      &lt;Exec&gt;        &lt;Command&gt;C:\\\\windows\\\\system32\\\\cmd.exe&lt;/Command&gt;      &lt;/Exec&gt;    &lt;/Actions&gt;    &lt;Principals&gt;      &lt;Principal id=\\\"Author\\\"&gt;        &lt;UserId&gt;WIN11-CLIENT\\\\vboxuser&lt;/UserId&gt;        &lt;LogonType&gt;InteractiveToken&lt;/LogonType&gt;        &lt;RunLevel&gt;LeastPrivilege&lt;/RunLevel&gt;      &lt;/Principal&gt;    &lt;/Principals&gt;  &lt;/Task&gt;",
+        "clientProcessStartKey": "844424930133263",
+        "clientProcessId": "12188",
+        "parentProcessId": "2732",
+        "rpcCallClientLocality": "0",
+        "fQDN": "win11-client"
+      }
+    }
+  },
+  "location": "EventChannel"
+}
