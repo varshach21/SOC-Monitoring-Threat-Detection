@@ -1,4 +1,4 @@
-cat ~/T1053.005-custom-rule-alert.json
+
 {
   "timestamp": "2026-08-24T13:51:06.049+0000",
   "rule": {
