@@ -1,0 +1,16 @@
+<!-- Custom Wazuh Detection Rules -->
+<!-- SOC Monitoring & Threat Detection Project -->
+
+<group name="local,windows,attack,">
+
+  <rule id="100002" level="12">
+    <if_sid>60228</if_sid>
+    <field name="win.eventdata.taskContent">cmd.exe</field>
+    <description>ATT&amp;CK T1053.005: Suspicious scheduled task spawning cmd.exe (possible persistence)</description>
+    <mitre>
+      <id>T1053.005</id>
+    </mitre>
+    <group>persistence,attack,</group>
+  </rule>
+
+</group>
